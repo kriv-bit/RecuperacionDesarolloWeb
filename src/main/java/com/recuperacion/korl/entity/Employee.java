@@ -30,4 +30,8 @@ public class Employee {
     @NotNull(message = "Salary is required")
     @Positive(message = "Salary must be greater than 0")
     private Double salary;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
 }

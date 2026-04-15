@@ -15,6 +15,11 @@ public class EmployeeRequest {
     @Positive(message = "Salary must be greater than 0")
     private Double salary;
 
+    @NotNull(message = "Department id is required")
+    private Long departmentId;
+
+    // getters & setters
+
     public String getName() {
         return name;
     }
@@ -37,5 +42,13 @@ public class EmployeeRequest {
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    public Long getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
     }
 }

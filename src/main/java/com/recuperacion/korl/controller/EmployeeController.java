@@ -13,22 +13,17 @@ import java.util.List;
  * REST Controller for managing Employee endpoints.
  */
 @RestController
-@RequestMapping("/api/employees") // Base path API
+@RequestMapping("/api/employees")
 public class EmployeeController {
 
     private final EmployeeService service;
 
-    /**
-     * Constructor injection for service layer.
-     */
     public EmployeeController(EmployeeService service) {
         this.service = service;
     }
 
     /**
-     * Create new employee.
-     * Returns HTTP 201 Created.
-     * Automatically validates request body.
+     * CREATE employee
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -39,12 +34,18 @@ public class EmployeeController {
     }
 
     /**
-     * List all employees.
-     * Returns JSON array.
+     * GET ALL employees
      */
     @GetMapping
     public List<EmployeeResponse> list() {
         return service.list();
     }
-    
+
+    /**
+     * GET employee by ID 
+     */
+    @GetMapping("/{id}")
+    public EmployeeResponse getById(@PathVariable Long id) {
+        return service.getById(id);
+    }
 }

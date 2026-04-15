@@ -6,15 +6,24 @@ public class EmployeeResponse {
     private String name;
     private String email;
     private Double salary;
+    private String departmentName;
 
-    public EmployeeResponse() {}
+    public EmployeeResponse() {
+    }
 
-    public EmployeeResponse(Long id, String name, String email, Double salary) {
+    public EmployeeResponse(Long id,
+            String name,
+            String email,
+            Double salary,
+            String departmentName) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.salary = salary;
+        this.departmentName = departmentName;
     }
+
+    // getters & setters
 
     public Long getId() {
         return id;
@@ -46,5 +55,13 @@ public class EmployeeResponse {
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 }
